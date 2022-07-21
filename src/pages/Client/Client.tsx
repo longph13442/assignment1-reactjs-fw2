@@ -14,8 +14,8 @@ const Client = (props: Props) => {
         </Header>
         
         <Outlet/>
-        {/* <Footer>
-        </Footer> */}
+        <Footer>
+        </Footer>
     </div>
   )
 }
