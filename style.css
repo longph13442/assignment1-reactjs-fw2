@@ -1,3 +1,20 @@
 input[type="file"] {
     display: none;
 }
+.bar-menu{
+    padding: 0;
+    
+}
+.bar-menu ul li{
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(197, 197, 197) ;
+    list-style: none;
+}
+.bar-menu ul li:hover{
+    background-color: red;
+}
+.bar-menu ul li a{
+    text-decoration: none;
+    color: rgb(83, 83, 83);
+    padding: 5px 0;
+}

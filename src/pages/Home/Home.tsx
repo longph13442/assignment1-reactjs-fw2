@@ -1,92 +1,55 @@
+import { ClockCircleOutlined, HomeOutlined, LaptopOutlined, PhoneOutlined, RightOutlined, SoundOutlined, TabletOutlined } from '@ant-design/icons'
 import React from 'react'
 import Banner from '../../Component/Banner'
+import { TypeProducts } from '../../type/products'
 
-type Props = {}
+type HomeProps = {
+  products: TypeProducts[]
+}
 
-const Home = (props: Props) => {
+const Home = (props: HomeProps) => {
   return (
     <div >
-      <Banner></Banner>
-      <h5 className="mb-3 my-3"> Sản phẩm tháng 07</h5>
+      <div className="container col-12  d-flex">
+        <div className="col-3">
+          <div className="bar-menu me-5">
+            <ul >
+              <li className='d-flex justify-content-between align-items-center' ><PhoneOutlined style={{ fontSize: '19px' }} /><a href="#" >Điện thoại</a><RightOutlined /></li>
+              <li className='d-flex justify-content-between align-items-center' ><TabletOutlined style={{ fontSize: '19px' }} /><a href="#" >Máy tính bảng</a><RightOutlined /></li>
+              <li className='d-flex justify-content-between align-items-center' ><LaptopOutlined style={{ fontSize: '19px' }} /><a href="#" >Laptop</a><RightOutlined /></li>
+              <li className='d-flex justify-content-between align-items-center' ><ClockCircleOutlined style={{ fontSize: '19px' }} /><a href="#" >Đồng hồ</a><RightOutlined /></li>
+              <li className='d-flex justify-content-between align-items-center' ><SoundOutlined style={{ fontSize: '19px' }} /><a href="#" >Âm thanh</a><RightOutlined /></li>
+              <li className='d-flex justify-content-between align-items-center border-bottom-0' ><HomeOutlined style={{ fontSize: '19px' }} /><a href="#" >Nhà thông minh</a><RightOutlined /></li>
+            </ul>
 
-      <div className=" container flex d-flex col-12  justify-content-center w-50 my-5">
-        <div className="item col-3 mx-2">
-          <div className="item-img img-fluid">
-            <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/8/11/637643195815267901_samsung-galaxy-z-fold3-xanh-2.jpg" width="100%" />
-          </div>
-          <div className="item-content">
-            <h5>Products A</h5>
-            <p> $.3000</p>
           </div>
         </div>
-        <div className="item col-3 mx-2">
-          <div className="item-img img-fluid">
-            <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/10/19/637702682508615222_macbook-pro-16-2021-xam-1.jpg" width="100%" />
-          </div>
-          <div className="item-content">
-            <h5>Products A</h5>
-            <p> $.3000</p>
-          </div>
+
+        <div className="col-9">
+          <Banner></Banner>
         </div>
-        <div className="item col-3 mx-2">
-          <div className="item-img img-fluid">
-            <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/4/28/637867602998291998_OP-MAGSAFE-IPHONE13PROMAX-UNIQLINO-HUE-SILICONE-4.jpg" width="100%" />
-          </div>
-          <div className="item-content">
-            <h5>Products A</h5>
-            <p> $.3000</p>
-          </div>
-        </div>
-        <div className="item col-3 mx-2">
-          <div className="item-img img-fluid">
-            <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/8/23/637653489178046061_chuot-magic-mouse-2-2021-trang-1.jpg" width="100%" />
-          </div>
-          <div className="item-content">
-            <h5>Products A</h5>
-            <p> $.3000</p>
-          </div>
-        </div>
+
       </div>
 
-      <div className=" container flex d-flex col-12  justify-content-center w-100">
-        <div className="item col-3 mx-2">
-          <div className="item-img img-fluid">
-            <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/4/28/637867602998291998_OP-MAGSAFE-IPHONE13PROMAX-UNIQLINO-HUE-SILICONE-4.jpg" width="100%" />
+      <h4 className="mx-5 my-3 text-start"> ĐIỆN THOẠI NỔI BẬT</h4>
+
+      <div className=" container flex d-flex row row-cols-2 justify-content-center my-5 mx-auto g-2">
+        {props.products.map((item, index) => {
+          return <div className="item col-2 mx-3 my-3" key={index}>
+            <div className="item-img img-fluid">
+              <img src={`${item.img}`} width="100%" />
+            </div>
+            <div className="item-content">
+              <h5>{item.name}</h5>
+              <div className="d-flex justify-content-around"><p> {item.price}.VND</p> <p className='text-danger'> {item.price}.VND</p></div>
+              
+            </div>
           </div>
-          <div className="item-content">
-            <h5>Products A</h5>
-            <p> $.3000</p>
-          </div>
-        </div>
-        <div className="item col-3 mx-2">
-          <div className="item-img img-fluid">
-            <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/8/23/637653489178046061_chuot-magic-mouse-2-2021-trang-1.jpg" width="100%" />
-          </div>
-          <div className="item-content">
-            <h5>Products A</h5>
-            <p> $.3000</p>
-          </div>
-        </div>
-        <div className="item col-3 mx-2">
-          <div className="item-img img-fluid">
-            <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/4/28/637867602998291998_OP-MAGSAFE-IPHONE13PROMAX-UNIQLINO-HUE-SILICONE-4.jpg" width="100%" />
-          </div>
-          <div className="item-content">
-            <h5>Products A</h5>
-            <p> $.3000</p>
-          </div>
-        </div>
-        <div className="item col-3 mx-2">
-          <div className="item-img img-fluid">
-            <img src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/8/23/637653489178046061_chuot-magic-mouse-2-2021-trang-1.jpg" width="100%" />
-          </div>
-          <div className="item-content">
-            <h5>Products A</h5>
-            <p> $.3000</p>
-          </div>
-        </div>
-        
+        })}
+
+
       </div>
+
 
     </div>
   )

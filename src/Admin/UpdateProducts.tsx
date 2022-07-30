@@ -16,7 +16,7 @@ type FormInput = {
     id: any,
     name: string,
     price: number,
-    img: string,
+    img: Array<string>,
     desc: string,
 
 }
@@ -56,6 +56,7 @@ const UpdateProducts = (props: updateProductsProps) => {
         const getProudcts = async () => {
             const { data } = await read(id);
             reset(data)
+            setImageUrl(data?.img ?? [])
         }
         getProudcts();
     }, [id])
@@ -63,7 +64,8 @@ const UpdateProducts = (props: updateProductsProps) => {
     const onSubmit: SubmitHandler<FormInput> = (data) => {
         props.onEdit(data);
         reset(data)
-        navigate("/admin")
+        data.img = imageUrl ?? [],
+            navigate("/admin")
 
     }
     //upload file
@@ -114,9 +116,7 @@ const UpdateProducts = (props: updateProductsProps) => {
         <div className="row">
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex'>
                 <div className="col-4 h-50 border pt-5">
-                    <Image src="" width={"15%"} id={"img-preview"} />
-                    <Upload />
-                    <Upload {...register("img")}
+                    <Upload
                         name="avatar"
                         listType="picture-card"
                         className="avatar-uploader w-100"
@@ -129,14 +129,20 @@ const UpdateProducts = (props: updateProductsProps) => {
                     >
                         {imageUrl ? (
                             <img
-                                src={imageUrl}
+                                src={imageUrl[0]}
                                 alt="avatar"
                                 style={{
                                     width: '100%',
                                 }}
                             />
                         ) : (
-                            uploadButton
+                            <img src=''
+                                alt="avatar"
+                                style={{
+                                    width: '100%',
+                                }}
+                            />
+
                         )}
                     </Upload >
                     <h6 className='my-5'>Thêm Ảnh</h6>
@@ -155,7 +161,7 @@ const UpdateProducts = (props: updateProductsProps) => {
                     <div className="form-label-group d-flex my-3 ">
                         <label htmlFor="inputEmail " className='w-25'>Giá :</label>
                         <input type="text" className="form-control bg-light w-auto " placeholder='Giá gốc' {...register('price', { required: true, min: 100 })} />
-                        <input type="text" className="form-control bg-light w-auto ms-4" placeholder='Giá khuyến mãi' />
+                        <input type="text" className="form-control bg-light w-auto ms-4" placeholder='Giá khuyến mãi' defaultValue={700} />
                     </div>
                     {errors.price && <p className="text-danger text-center"> Định dạng trường không hợp lệ</p>}
 
@@ -175,7 +181,7 @@ const UpdateProducts = (props: updateProductsProps) => {
 
                     <div className="form-label-group d-flex my-3">
                         <label htmlFor="inputEmail " className='w-25'>Đặc điểm:</label>
-                        <input type="text" className="form-control bg-light w-75 " placeholder='Sản phẩm tốt'/>
+                        <input type="text" className="form-control bg-light w-75 " placeholder='Sản phẩm tốt' defaultValue={"Sản phẩm tốt"} />
                     </div>
                     <button className="btn  btn-success btn-md my-4" type="submit" name="profile">Thêm sản phẩm</button>
 

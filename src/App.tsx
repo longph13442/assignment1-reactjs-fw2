@@ -73,7 +73,7 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path='/' element={<Client />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home products={Products}/>} />
           <Route path='/productsdetail' element={<ProductsDetail />} />
         </Route>
         <Route path='/admin' element={<Admins />}>

@@ -5,6 +5,10 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { TypeProducts } from '../type/products';
 import { SubmitHandler, useForm } from "react-hook-form"
+import axios from 'axios';
+import { stringify } from 'rc-field-form/es/useWatch';
+import { RcFile, UploadChangeParam, UploadFile, UploadProps } from 'antd/lib/upload'
+
 
 
 
@@ -16,7 +20,7 @@ type FormInput = {
     id: any,
     name: string,
     price: number,
-    img: string,
+    img: Array<string>,
     desc: string,
 
 }
@@ -26,8 +30,8 @@ const getBase64 = (img: any, callback: any) => {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
     reader.readAsDataURL(img);
-
 };
+
 const beforeUpload = (file: any) => {
     const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
 
@@ -51,28 +55,32 @@ const CreatProducts = (props: CreatProductsProps) => {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm<FormInput>();
     const onSubmit: SubmitHandler<FormInput> = (data) => {
+        data.img=imageUrl ??[],
         props.onAdd(data);
         navigate("/admin")
     }
     //upload file
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState();
-    console.log("imagesw:", imageUrl);
+    
+    const Url = JSON.stringify({ imageUrl, toJSON() { return this.imageUrl } });
+    console.log(Url);
+   
+    
+    
+    
 
-
-    const handleChange = (info: any) => {
+    const handleChange: UploadProps['onChange'] = (info: any) => {
         if (info.file.status === 'uploading') {
             setLoading(true);
             return;
         }
 
         if (info.file.status === 'done') {
+            setLoading(false)
             // Get this url from response in real world.
-            getBase64(info.file.originFileObj, (url: any) => {
-                setLoading(false);
-                setImageUrl(url);
-                console.log(url);
-            });
+            setImageUrl(info.file.response)
+
         }
     };
 
@@ -103,43 +111,49 @@ const CreatProducts = (props: CreatProductsProps) => {
     //
     return (
         <div className="row">
-            <form onSubmit={handleSubmit(onSubmit)} className='d-flex'>
+            <form onSubmit={handleSubmit(onSubmit)} className='d-flex' id={"img-preview"}>
                 <div className="col-4 h-50 border pt-5">
 
-                    {/* <input type="file" /><Image src={`${imageUrl}`} defaultValue={imageUrl} {...register("img")} width={"15%"} id={"img-preview"} />
-                     */}
+                    {/* <input type="file" /><Image  {...register("img")} width={"15%"} id={"img-preview"} /> */}
+
                     {/* <label className="custom-file-upload">
-                        <input type="file" defaultValue={imageUrl} {...register("img")}/>
+                        <input type="file" defaultValue={imageUrl} {...register("img")} id={"img"}/>
                         <PlusOutlined style={{ fontSize: '25px' }} className="border border-info p-2 border-2 text-info" />
                     </label> */}
-                    
-                    <Upload />
+
+                    <Upload  />
+
                     <Upload 
-                        name="avatar"
-                        listType="picture-card"
-                        className="avatar-uploader w-100"
-                        showUploadList={false}
-                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                        beforeUpload={beforeUpload}
+                        action="https://angular-server.vercel.app/api/upload"
+                        headers={{
+                            authorization: 'authorization-text',
+                            contentType: "multipart/form-data",
+                            accept: "application/json"
+                        }}
+                        name="image"
+                        maxCount={1}
                         onChange={handleChange}
-                        style={{ width: '300px' }}
-                        
+                        beforeUpload={beforeUpload}
+
                     >
                         {imageUrl ? (
                             <img
+
                                 src={imageUrl}
                                 alt="avatar"
                                 style={{
                                     width: '100%',
                                 }}
+
                             />
                         ) : (
                             uploadButton
                         )}
-                    </Upload >
-                    <h6 className='my-5'>Thêm Ảnh</h6>
-                    {/* <input type="hidden" defaultValue="https://res.cloudinary.com/vulong/image/upload/v1658331010/uploadimg/xlgtshmk9r4cuo2uz514.png" {...register("img")} /> */}
 
+                    </Upload >
+
+                    <h6 className='my-5'>Thêm Ảnh</h6>
+                    
                 </div>
                 <div className="col-8 ps-5 ">
 
@@ -260,6 +274,7 @@ const CreatProducts = (props: CreatProductsProps) => {
                     </Form.Item>
                 </Form >
             </div> */}
+
             </form>
         </div>
 
