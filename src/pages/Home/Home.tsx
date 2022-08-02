@@ -1,5 +1,6 @@
-import { ClockCircleOutlined, HomeOutlined, LaptopOutlined, PhoneOutlined, RightOutlined, SoundOutlined, TabletOutlined } from '@ant-design/icons'
+import { ClockCircleOutlined, HomeOutlined, LaptopOutlined, PhoneOutlined, RightOutlined, ShoppingCartOutlined, SoundOutlined, TabletOutlined } from '@ant-design/icons'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Banner from '../../Component/Banner'
 import { TypeProducts } from '../../type/products'
 
@@ -37,12 +38,13 @@ const Home = (props: HomeProps) => {
         {props.products.map((item, index) => {
           return <div className="item col-2 mx-3 my-3" key={index}>
             <div className="item-img img-fluid">
-              <img src={`${item.img}`} width="100%" />
+              <Link to={`/productsdetail/${item?.id}`}><img src={`${item.img}`} width="100%" /></Link>
             </div>
             <div className="item-content">
-              <h5>{item.name}</h5>
+              <div className="d-flex justify-content-center"><h5>{item.name}</h5> <span className='text-danger'><ShoppingCartOutlined style={{ fontSize: '20px' }} /></span>
+              </div>
               <div className="d-flex justify-content-around"><p> {item.price}.VND</p> <p className='text-danger'> {item.price}.VND</p></div>
-              
+
             </div>
           </div>
         })}

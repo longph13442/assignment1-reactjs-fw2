@@ -1,7 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Banner from '../../Component/Banner'
-import Box from '../../Component/box'
 import Footer from '../../Component/Footer'
 import Header from '../../Component/Header'
 

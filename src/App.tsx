@@ -16,6 +16,9 @@ import { creat, edit, list, remove } from './api/products'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify'
 import UpdateProducts from './Admin/UpdateProducts'
+import Cart from './pages/Cart/Cart'
+import Login from './pages/Login/Login'
+import Signup from './pages/SignUp/Signup'
 
 
 function App() {
@@ -74,8 +77,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Client />}>
           <Route index element={<Home products={Products}/>} />
-          <Route path='/productsdetail' element={<ProductsDetail />} />
+          <Route path='/productsdetail/:id' element={<ProductsDetail />} />
+          <Route path='/cart' element={<Cart />} />
         </Route>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
         <Route path='/admin' element={<Admins />}>
           <Route index element={<Dashboard products={Products} onRemove={OnRemove}/>} />
           <Route path='/admin/creat' element={<CreatProducts onAdd={OnAdd}/>} />

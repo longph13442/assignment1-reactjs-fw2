@@ -1,10 +1,15 @@
 import { AimOutlined, ShoppingOutlined, TagOutlined, WifiOutlined } from '@ant-design/icons'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 type Props = { children: any }
 
 const Header = (props: Props) => {
+    const [Count,setCount] = useState()
+    const CountItem = JSON.parse(localStorage.Carts).length
+    // setCount(CountItem)
+    
+    
     return (
         <header className="p-2 mb-3 border-bottom  bg-danger">
             <div className="mx-3">
@@ -19,7 +24,7 @@ const Header = (props: Props) => {
                     <div className="d-flex col-auto col-12 col-lg-auto me-lg-auto mx-auto ">
                         <div className="col mx-2 " ><a href="" className='text-light my-2'>Gọi đặt hàng</a><p className='text-light'>038976778</p></div>
                         <div className="col mx-2 " ><TagOutlined style={{fontSize:'22px',color:'white'}}/><a href="" className='ms-3 text-light text-end my-2'>Cửa hàng của bạn</a></div>
-                        <div className="col mx-2 " ><ShoppingOutlined style={{fontSize:'22px',color:'white'}}/><a href="" className='ms-3 text-light text-end my-2'>Tra cứu đơn hàng</a></div>
+                        <div className="col mx-2 " ><Link to="/cart"><ShoppingOutlined style={{fontSize:'22px',color:'white'}}/></Link><span className='text-info'>{CountItem}</span><a href="" className='ms-3 text-light text-end my-2'>Tra cứu đơn hàng</a></div>
                     </div>
                     <div className="dropdown text-end">
                         <a href="#" className="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

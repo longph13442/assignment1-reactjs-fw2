@@ -1,6 +1,9 @@
 input[type="file"] {
     display: none;
 }
+.typeInput{
+    width: 100px !important;
+}
 .bar-menu{
     padding: 0;
     
