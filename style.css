@@ -13,9 +13,7 @@ input[type="file"] {
     border-bottom: 1px solid rgb(197, 197, 197) ;
     list-style: none;
 }
-.bar-menu ul li:hover{
-    background-color: red;
-}
+
 .bar-menu ul li a{
     text-decoration: none;
     color: rgb(83, 83, 83);

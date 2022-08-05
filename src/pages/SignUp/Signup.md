@@ -1,53 +1,71 @@
 import React, { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
-import { signup } from '../../api/Users'
 
-
-type Props = {
-}
-type FormInput={
-    id: any,
-    email: string,
-    phone: number,
-    password: string
-}
+type Props = {}
 
 const Signup = (props: Props) => {
+    const datavalue = {
+        email: "",
+        phone: "",
+        password: ""
+    }
+    const [values, setValues] = useState(datavalue)
+    // dùng onchange lấy value từ input
+    const ChangeValue = (e: any) => {
+        const { name, value } = e.target;
+        setValues({
+            ...values,
+            [name]: value,
+        });
+    }
+
+    // add vào localStorage
     const navigate = useNavigate();
-    const {register, handleSubmit, formState : {errors}} = useForm<FormInput>()
-    const onSubmit: SubmitHandler<FormInput> = async(user) =>{
+    const handleSubmit = () => {
+        // push state vào 1 mảng
         try {
-          const {data} = await signup(user)
-          console.log(data);
-          if(data){
-            toast.success(" Sign up Successfully !")
-            navigate("/login")
-          }
+            const ArrayData = JSON.parse(localStorage.getItem("Users") ?? "[]")
+            ArrayData.forEach((item: any) => {
+                if (values.email == item.email) {
+                    return false
+                }
+            });
+            if (true) {
+                ArrayData.push(values)
+                const data = localStorage.setItem("Users", JSON.stringify(ArrayData))
+                toast.success("Sign up successfully ! ")
+                navigate("/login")
+            }
+            
+
+
         } catch (error) {
-          toast.error(" Sign up fail !")
+            toast.error("Email already exists !")
         }
-         
-       }
+
+
+
+    }
+
     return (
         <div className='bg-light pb-5 pt-3'>
             <div className='bg-white w-50 mx-auto my-0'><h5 className='p-3 text-danger '> Sign up</h5></div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit}>
                 <ToastContainer />
                 <div className="col-12 d-flex w-50 mx-auto bg-white p-5">
                     <div className="col-7 ">
                         <div className='my-3 text-start'>
                             <label htmlFor="">Email </label>
-                            <input type="text" className='form-control' {...register("email")} />
+                            <input type="text" className='form-control' name='email' onChange={ChangeValue} />
                         </div>
                         <div className='my-3 text-start'>
                             <label htmlFor="">Số điện thoại </label>
-                            <input type="text" className='form-control' {...register("phone")}  />
+                            <input type="text" className='form-control' name='phone' onChange={ChangeValue} />
                         </div>
                         <div className='my-3 text-start'>
                             <label htmlFor="">Password </label>
-                            <input type="password" className='form-control' {...register("password")}  />
+                            <input type="password" className='form-control' name="password" onChange={ChangeValue} />
                         </div>
                         <button className='btn btn-danger my-3 w-100'> Đăng Kí</button>
                         <h6 className='text-center my-3'> Hoặc đăng nhập bằng</h6>

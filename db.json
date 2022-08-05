@@ -4,14 +4,14 @@
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658887620/wy2ekngvbtoew81a3tmu.png"
       ],
-      "name": "Iphone 11",
-      "price": "1000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "The slim & simple Maple Gaming",
       "id": 1
     },
     {
-      "name": "iphone 12",
-      "price": "1000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "The beautiful range",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658887651/cwrycgxentctviwr2cae.png"
@@ -19,8 +19,8 @@
       "id": 2
     },
     {
-      "name": "iphone",
-      "price": "1000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "Carbonite web goalkeeper ",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912656/fyxf1ifrzqgewcozxdun.png"
@@ -28,8 +28,8 @@
       "id": 3
     },
     {
-      "name": "iphone",
-      "price": "2000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "The slim & simple Maple Gaming",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912683/pteejchbhs8qhsnty4sz.png"
@@ -37,8 +37,8 @@
       "id": 4
     },
     {
-      "name": "polo-shirt",
-      "price": "3000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000",
       "desc": "The slim & simple Maple Gaming",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912702/emp0ls7fcof8yb4vcm8j.png"
@@ -46,8 +46,8 @@
       "id": 5
     },
     {
-      "name": "samsung",
-      "price": "2000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "The beautiful range",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912716/xwvwpzrncfgwwymkkuc5.png"
@@ -55,8 +55,8 @@
       "id": 6
     },
     {
-      "name": "iphone",
-      "price": "2000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "Carbonite web goalkeeper ",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912778/eh2e6l7ysyglkwbya0uy.png"
@@ -64,8 +64,8 @@
       "id": 7
     },
     {
-      "name": "iphone 13 promax",
-      "price": "2000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "The beautiful range",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658913466/zrnj6vvfc3vbr9x07kyj.png"
@@ -73,8 +73,8 @@
       "id": 8
     },
     {
-      "name": "iphone 15 pro max",
-      "price": "1000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "The beautiful range",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658913480/powcpm5keh1iaihsoeco.png"
@@ -82,13 +82,28 @@
       "id": 9
     },
     {
-      "name": "iphone 15 pro max",
-      "price": "1000",
+      "name": "iPhone 11 64GB I Chính hãng VN/A",
+      "price": "1000 ",
       "desc": "Carbonite web goalkeeper ",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658913533/njhjepvtvjrhzrhq6tmt.png"
       ],
       "id": 10
     }
+  ],
+  "users": [
+    {
+      "email": "longtvph13442@fpt.edu.vn",
+      "password": "$2a$10$24vHCwIhqnMADMtqmKLLKeVn5/.7n/677bGG5FPAnAi383JNq3LDO",
+      "phone": "0332489168",
+      "id": 1
+    },
+    {
+      "email": "longph13442@fpt.edu.vn",
+      "password": "$2a$10$TOj9n8L4trmKrAPqGvvdFu.dpXOW6KGZqtR37mclKAvsJusX9Ms0W",
+      "phone": "0332489169",
+      "id": 2
+    }
   ]
+  
 }

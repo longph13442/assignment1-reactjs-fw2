@@ -18,7 +18,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import UpdateProducts from './Admin/UpdateProducts'
 import Cart from './pages/Cart/Cart'
 import Login from './pages/Login/Login'
-import Signup from './pages/SignUp/Signup'
+import Signup from './pages/SignUp/SignUp'
 
 
 function App() {

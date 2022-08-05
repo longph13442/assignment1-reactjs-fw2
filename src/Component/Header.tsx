@@ -26,17 +26,11 @@ const Header = (props: Props) => {
                         <div className="col mx-2 " ><TagOutlined style={{fontSize:'22px',color:'white'}}/><a href="" className='ms-3 text-light text-end my-2'>Cửa hàng của bạn</a></div>
                         <div className="col mx-2 " ><Link to="/cart"><ShoppingOutlined style={{fontSize:'22px',color:'white'}}/></Link><span className='text-info'>{CountItem}</span><a href="" className='ms-3 text-light text-end my-2'>Tra cứu đơn hàng</a></div>
                     </div>
-                    <div className="dropdown text-end">
-                        <a href="#" className="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div className="dropdown ">
+                        <a href="/login" className="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle" />
                         </a>
-                        <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                            <li><a className="dropdown-item" href="#">New project...</a></li>
-                            <li><a className="dropdown-item" href="#">Settings</a></li>
-                            <li><a className="dropdown-item" href="#">Profile</a></li>
-                            <li><hr className="dropdown-divider" /></li>
-                            <li><a className="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
+                        
                     </div>
                 </div>
             </div>
