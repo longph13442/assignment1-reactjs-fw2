@@ -1,5 +1,5 @@
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons';
-import { Breadcrumb, Button, Cascader, DatePicker, Form, Input, InputNumber, Select, Switch, TreeSelect, message, Upload, Col, Row, Image } from 'antd';
+import { Breadcrumb, Button, Cascader, DatePicker, Form, Input, InputNumber, Select, Switch, TreeSelect, message, Upload, Col, Row, Image, UploadProps } from 'antd';
 import { Option } from 'antd/lib/mentions';
 import React, { useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -62,28 +62,26 @@ const UpdateProducts = (props: updateProductsProps) => {
     }, [id])
 
     const onSubmit: SubmitHandler<FormInput> = (data) => {
+        data.img = imageUrl ?? [],
         props.onEdit(data);
         reset(data)
-        data.img = imageUrl ?? [],
-            navigate("/admin")
+        navigate("/admin")
 
     }
     //upload file
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState();
 
-    const handleChange = (info: any) => {
+    const handleChange: UploadProps['onChange'] = (info: any) => {
         if (info.file.status === 'uploading') {
             setLoading(true);
             return;
         }
 
         if (info.file.status === 'done') {
-            // Get this url from response in real world.
-            getBase64(info.file.originFileObj, (url: any) => {
-                setLoading(false);
-                setImageUrl(url);
-            });
+            setLoading(false)
+            setImageUrl(info.file.response)
+
         }
     };
 
@@ -115,35 +113,33 @@ const UpdateProducts = (props: updateProductsProps) => {
     return (
         <div className="row">
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex'>
-                <div className="col-4 h-50 border pt-5">
+                <div className="col-4 h-50 border pt-3">
                     <Upload
-                        name="avatar"
-                        listType="picture-card"
-                        className="avatar-uploader w-100"
-                        showUploadList={false}
-                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                        beforeUpload={beforeUpload}
+                        action="https://angular-server.vercel.app/api/upload"
+                        headers={{
+                            authorization: 'authorization-text',
+                            contentType: "multipart/form-data",
+                            accept: "application/json"
+                        }}
+                        name="image"
+                        maxCount={1}
                         onChange={handleChange}
-                        style={{ width: '300px' }}
+                        beforeUpload={beforeUpload}
 
                     >
                         {imageUrl ? (
                             <img
-                                src={imageUrl[0]}
+                                src={imageUrl}
                                 alt="avatar"
                                 style={{
-                                    width: '100%',
+                                    width: '90%',
                                 }}
+
                             />
                         ) : (
-                            <img src=''
-                                alt="avatar"
-                                style={{
-                                    width: '100%',
-                                }}
-                            />
-
+                            uploadButton
                         )}
+
                     </Upload >
                     <h6 className='my-5'>Thêm Ảnh</h6>
 
@@ -187,86 +183,6 @@ const UpdateProducts = (props: updateProductsProps) => {
 
 
                 </div>
-                {/* <div className="col-8 ps-5 ">
-                <Form className='w-100 ' validateMessages={validateMessages}
-                    labelCol={{
-                        span: 5,
-                    }}
-                    wrapperCol={{
-                        span: 19,
-                    }}
-                    layout="horizontal"
-                    initialValues={{
-
-                    }}
-                    onValuesChange={onFormLayoutChange}
-
-                >
-                    <h6 className='text-start '>Thông tin sản phẩm</h6>
-                    <hr />
-                    <Form.Item name="name" label="Tên sản phẩm " className='text-start ' rules={[{required: true}]}>
-
-                        <Input />
-                    </Form.Item>
-                    <Row className='ms-5'>
-                        <Col span={12} >
-                            <Form.Item label="Giá " name="price" className='text-start ' style={{ maxWidth: '1000px' }} rules={[
-                                {required:true,type:"number",min:100,max:200},
-                                ]}>
-                                <Input className='mx-2' placeholder='Giá gốc' />
-                            </Form.Item>
-                        </Col>
-                        <Col span={12} >
-                            <Form.Item label="" name="price2" className='text-start ms-5' style={{ maxWidth: '1000px' }} >
-                                <Input placeholder='Giá khuyến mãi' />
-                            </Form.Item>
-                        </Col>
-                    </Row>
-
-
-
-                    <Form.Item
-                        name="Danh mục"
-                        label="Danh mục"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Không được để trống !',
-                            },
-                        ]}
-                    >
-                        <Select placeholder="Điện thoại">
-                            <Option value="Iphone">Iphone</Option>
-                            <Option value="Samsung">Samsung</Option>
-                            <Option value="other">other</Option>
-                        </Select>
-                    </Form.Item>
-
-                    <Form.Item label="Đặc điểm " name="character"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Không được để trống !',
-                            },
-                        ]}>
-                        <Input size='large' className='py-3' />
-                    </Form.Item>
-
-                    <Form.Item label="Mô tả " name="desc"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Không được để trống !',
-                            },
-                        ]}>
-                        <Input size='large' className='py-3' />
-                    </Form.Item>
-
-                    <Form.Item label="" className='mx-auto'>
-                        <button className='btn btn-info'> Thêm mới</button>
-                    </Form.Item>
-                </Form >
-            </div> */}
             </form>
         </div>
 

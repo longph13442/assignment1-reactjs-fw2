@@ -1,17 +1,8 @@
 {
   "Products": [
     {
-      "img": [
-        "https://res.cloudinary.com/duongtaph13276/image/upload/v1658887620/wy2ekngvbtoew81a3tmu.png"
-      ],
       "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
-      "desc": "The slim & simple Maple Gaming",
-      "id": 1
-    },
-    {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
+      "price": 24000000,
       "desc": "The beautiful range",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658887651/cwrycgxentctviwr2cae.png"
@@ -19,8 +10,8 @@
       "id": 2
     },
     {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
+      "name": "iPhone 12 64GB I Chính hãng VN/A",
+      "price": 24000000,
       "desc": "Carbonite web goalkeeper ",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912656/fyxf1ifrzqgewcozxdun.png"
@@ -28,8 +19,8 @@
       "id": 3
     },
     {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
+      "name": "iPhone 13 64GB I Chính hãng VN/A",
+      "price": 24000000,
       "desc": "The slim & simple Maple Gaming",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912683/pteejchbhs8qhsnty4sz.png"
@@ -37,8 +28,8 @@
       "id": 4
     },
     {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000",
+      "name": "iPhone 14 64GB I Chính hãng VN/A",
+      "price": "24000000",
       "desc": "The slim & simple Maple Gaming",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912702/emp0ls7fcof8yb4vcm8j.png"
@@ -46,8 +37,8 @@
       "id": 5
     },
     {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
+      "name": "iPhone 15 64GB I Chính hãng VN/A",
+      "price": 24000000,
       "desc": "The beautiful range",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912716/xwvwpzrncfgwwymkkuc5.png"
@@ -55,8 +46,8 @@
       "id": 6
     },
     {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
+      "name": "iPhone 16 64GB I Chính hãng VN/A",
+      "price": 24000000,
       "desc": "Carbonite web goalkeeper ",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658912778/eh2e6l7ysyglkwbya0uy.png"
@@ -64,8 +55,8 @@
       "id": 7
     },
     {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
+      "name": "iPhone 17 64GB I Chính hãng VN/A",
+      "price": 24000000,
       "desc": "The beautiful range",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658913466/zrnj6vvfc3vbr9x07kyj.png"
@@ -73,8 +64,8 @@
       "id": 8
     },
     {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
+      "name": "iPhone 18 64GB I Chính hãng VN/A",
+      "price": 24000000,
       "desc": "The beautiful range",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658913480/powcpm5keh1iaihsoeco.png"
@@ -82,13 +73,22 @@
       "id": 9
     },
     {
-      "name": "iPhone 11 64GB I Chính hãng VN/A",
-      "price": "1000 ",
+      "name": "iPhone 19 64GB I Chính hãng VN/A",
+      "price": 24000000,
       "desc": "Carbonite web goalkeeper ",
       "img": [
         "https://res.cloudinary.com/duongtaph13276/image/upload/v1658913533/njhjepvtvjrhzrhq6tmt.png"
       ],
       "id": 10
+    },
+    {
+      "name": "iPhone 20 64GB I Chính hãng VN/A",
+      "price": "24000000",
+      "desc": "The beautiful range",
+      "img": [
+        "https://res.cloudinary.com/duongtaph13276/image/upload/v1659870264/gtgbyaeoyuhzpsi2cqxy.png"
+      ],
+      "id": 11
     }
   ],
   "users": [
@@ -96,14 +96,13 @@
       "email": "longtvph13442@fpt.edu.vn",
       "password": "$2a$10$24vHCwIhqnMADMtqmKLLKeVn5/.7n/677bGG5FPAnAi383JNq3LDO",
       "phone": "0332489168",
-      "id": 1
+      "id": 2
     },
     {
-      "email": "longph13442@fpt.edu.vn",
-      "password": "$2a$10$TOj9n8L4trmKrAPqGvvdFu.dpXOW6KGZqtR37mclKAvsJusX9Ms0W",
-      "phone": "0332489169",
-      "id": 2
+      "email": "admin@gmail.com",
+      "password": "$2a$10$h1/RF7T6rHXvXLNfIF21UOCTT92DvmgNiUbXuJbLoJvjBY8J4QeVW",
+      "phone": "0332489168",
+      "id": 1
     }
   ]
-  
 }

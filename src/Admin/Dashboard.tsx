@@ -10,7 +10,7 @@ import { TypeProducts } from "../type/products";
 
 type DashboardProps = {
     products: TypeProducts[],
-    onRemove:(id:any) => void
+    onRemove: (id: any) => void
 }
 
 

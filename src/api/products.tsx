@@ -21,3 +21,7 @@ export const edit =(products:TypeProducts)=>{
     const url= `/products/${products.id}`
     return instance.put(url,products)
 }
+export const getSearchProduct = (text: string) => {
+    const url = `/Products?q=${text}`
+    return instance.get(url)
+  }

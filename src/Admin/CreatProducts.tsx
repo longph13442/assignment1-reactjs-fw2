@@ -22,7 +22,6 @@ type FormInput = {
     price: number,
     img: Array<string>,
     desc: string,
-
 }
 
 // upload
@@ -112,7 +111,7 @@ const CreatProducts = (props: CreatProductsProps) => {
     return (
         <div className="row">
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex' id={"img-preview"}>
-                <div className="col-4 h-50 border pt-5">
+                <div className="col-4 h-50 border pt-3">
 
                     {/* <input type="file" /><Image  {...register("img")} width={"15%"} id={"img-preview"} /> */}
 
@@ -142,7 +141,7 @@ const CreatProducts = (props: CreatProductsProps) => {
                                 src={imageUrl}
                                 alt="avatar"
                                 style={{
-                                    width: '100%',
+                                    width: '90%',
                                 }}
 
                             />
@@ -194,87 +193,6 @@ const CreatProducts = (props: CreatProductsProps) => {
 
 
                 </div>
-                {/* <div className="col-8 ps-5 ">
-                <Form className='w-100 ' validateMessages={validateMessages}
-                    labelCol={{
-                        span: 5,
-                    }}
-                    wrapperCol={{
-                        span: 19,
-                    }}
-                    layout="horizontal"
-                    initialValues={{
-
-                    }}
-                    onValuesChange={onFormLayoutChange}
-
-                >
-                    <h6 className='text-start '>Thông tin sản phẩm</h6>
-                    <hr />
-                    <Form.Item name="name" label="Tên sản phẩm " className='text-start ' rules={[{required: true}]}>
-
-                        <Input />
-                    </Form.Item>
-                    <Row className='ms-5'>
-                        <Col span={12} >
-                            <Form.Item label="Giá " name="price" className='text-start ' style={{ maxWidth: '1000px' }} rules={[
-                                {required:true,type:"number",min:100,max:200},
-                                ]}>
-                                <Input className='mx-2' placeholder='Giá gốc' />
-                            </Form.Item>
-                        </Col>
-                        <Col span={12} >
-                            <Form.Item label="" name="price2" className='text-start ms-5' style={{ maxWidth: '1000px' }} >
-                                <Input placeholder='Giá khuyến mãi' />
-                            </Form.Item>
-                        </Col>
-                    </Row>
-
-
-
-                    <Form.Item
-                        name="Danh mục"
-                        label="Danh mục"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Không được để trống !',
-                            },
-                        ]}
-                    >
-                        <Select placeholder="Điện thoại">
-                            <Option value="Iphone">Iphone</Option>
-                            <Option value="Samsung">Samsung</Option>
-                            <Option value="other">other</Option>
-                        </Select>
-                    </Form.Item>
-
-                    <Form.Item label="Đặc điểm " name="character"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Không được để trống !',
-                            },
-                        ]}>
-                        <Input size='large' className='py-3' />
-                    </Form.Item>
-
-                    <Form.Item label="Mô tả " name="desc"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Không được để trống !',
-                            },
-                        ]}>
-                        <Input size='large' className='py-3' />
-                    </Form.Item>
-
-                    <Form.Item label="" className='mx-auto'>
-                        <button className='btn btn-info'> Thêm mới</button>
-                    </Form.Item>
-                </Form >
-            </div> */}
-
             </form>
         </div>
 

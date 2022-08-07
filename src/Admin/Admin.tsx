@@ -44,7 +44,7 @@ const Dashboard = () => (
   <Layout>
 
     <Header className="header d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start Headers" style={{ backgroundColor: "#00B0D7" }}>
-      <Image src='https://res.cloudinary.com/vulong/image/upload/v1657504890/uploadimg/kf2zfzrmg8uijd2dmzci.png' width={70} height={70} />
+      <Link to="/"><img src='https://res.cloudinary.com/vulong/image/upload/v1657504890/uploadimg/kf2zfzrmg8uijd2dmzci.png' width={70} height={70} /></Link>
       <form className="col-12 col-lg-6 mb-3 mb-lg-0 me-lg-3 mx-5">
         <Select className='text-start '
           mode="tags"

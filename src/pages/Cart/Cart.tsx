@@ -2,6 +2,7 @@ import { CloseOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { CurrencyConvert } from '../../utils/common';
 
 type Props = {
 
@@ -54,8 +55,8 @@ const Cart = (props: Props) => {
           <div className="col-7 text-start py-2 ">
             <h6>{item.name}</h6>
             <div className="d-flex align-items-center">
-              <p className='me-2 text-danger'>${item.price}</p>
-              <del><p className='ms-2 text-secondary'>$50</p></del>
+              <p className='me-2 text-danger'>{CurrencyConvert(item.price)}</p>
+              <del><p className='ms-2 text-secondary'>{CurrencyConvert(28000000)}</p></del>
               <span className="badge bg-danger rounded-pill mb-2 ms-2" >Giảm 27%</span>
             </div>
             <div className="d-flex">
@@ -65,7 +66,7 @@ const Cart = (props: Props) => {
               <button className='border-0 bg-light fs-3' onClick={() => { decrease(item.id) }}>-</button>
             </div>
             <span className='py-3'>- Chương trình khuyến mãi :Dịch vụ phòng chờ hạng thương gia tại sân bay,Ưu đãi Galaxy gift lên đến 1.700.000đ (VieON VIP HBO GO, Zing MP3, Phúc Long, Galaxy Play)</span>
-            <span>{item.value * (+item.price)} </span>
+            <span>{ CurrencyConvert(item.value * (+item.price))} </span>
           </div>
           <div className="col-1">
             <span><CloseOutlined onClick={() => OnRemove(item?.id)} /></span>
@@ -76,7 +77,7 @@ const Cart = (props: Props) => {
 
       <div className="d-flex justify-content-between m-3">
         <h6 >Tổng tạm tính</h6>
-        <h6 className='text-danger'>${sum}</h6>
+        <h6 className='text-danger'>{CurrencyConvert(sum) }</h6>
       </div>
       <button className='btn btn-danger w-100 '> Thanh toán</button>
       <button className='btn btn-outline-danger w-100 my-3'> Chọn thêm sản phẩm khác</button>

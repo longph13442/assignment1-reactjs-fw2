@@ -50,7 +50,6 @@ const ProductsDetail = (props: Props) => {
   const handleSubmit = () => {
     const exist = ArrCart.find((item: any) => item.id == additem.id);
     console.log(exist);
-    
     if (exist) {
       exist.value+= Values
     }else{
@@ -63,7 +62,6 @@ const ProductsDetail = (props: Props) => {
   }
 
 
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -74,7 +72,7 @@ const ProductsDetail = (props: Props) => {
 
           <div className="col-7 text-start px-5">
             <h6 className='my-3'>{Products?.name}</h6>
-            <h6 className="my-3 text-danger">{Products?.price}.000 VND</h6>
+            <h6 className="my-3 text-danger">{ Products?.price}</h6>
             <p className='my-3'>Mô tả ngắn: Trước khi mua bất kỳ chiếc điện thoại nào, người dùng cũng sẽ quan tâm đến thiết kế sản phẩm trước. Với phiên bản A73, Samsung đã tạo nên một chiếc smartphone với vẻ ngoài mang đến cảm giác sang trọng và tinh tế.</p>
             <div className=" my-4 border rounded text-center" style={{ width: '200px' }}>
               <button className='border-0 bg-white  btn fs-3 align-items-center' type='button' onClick={() => { decrease() }}>-</button>

@@ -1,14 +1,24 @@
 import { ClockCircleOutlined, HomeOutlined, LaptopOutlined, PhoneOutlined, RightOutlined, ShoppingCartOutlined, SoundOutlined, StarOutlined, TabletOutlined } from '@ant-design/icons'
 import React from 'react'
+import { render } from 'react-dom'
 import { Link } from 'react-router-dom'
 import Banner from '../../Component/Banner'
+import ModalSearch from '../../Component/ModalSearch'
 import { TypeProducts } from '../../type/products'
+import { CurrencyConvert } from '../../utils/common'
+import SearchBar from '../SearchProducts/Search'
+import ProductTable from './ProductTable'
 
 type HomeProps = {
   products: TypeProducts[]
 }
 
 const Home = (props: HomeProps) => {
+  // return(
+  //   <div>
+  //     <ProductTable productss ={props.products}/>
+  //   </div>
+  // )
   return (
     <div >
       <div className="container col-12  d-flex">
@@ -42,8 +52,8 @@ const Home = (props: HomeProps) => {
             </div>
             <div className="item-content">
               <div className="d-flex justify-content-center"><span className='my-2'>{item.name}</span>  </div>
-             
-              <div className="d-flex justify-content-around"><p> {item.price}.đ</p> <p className='text-danger'> {item.price}.đ</p></div>
+
+              <div className="d-flex justify-content-around"><p> {CurrencyConvert(item.price)}</p> <p className='text-danger'> {CurrencyConvert(12000000)}</p></div>
               <div className=' bg-light border rounded'><span>Thu cũ lên đời - Trợ giá 1 triệu</span></div>
               <div className="d-flex justify-content-between"><span><StarOutlined /><StarOutlined /><StarOutlined /><StarOutlined /><StarOutlined /></span> <span className='mt-1 '>35 đánh giá</span></div>
             </div>
@@ -52,6 +62,7 @@ const Home = (props: HomeProps) => {
 
 
       </div>
+
       <h6 className='my-3 mx-5 text-start'>PHỤ KIỆN </h6>
       <div className=" container ">
         <div className="col-12 w-75 d-flex mx-auto row row-cols-2 g-3">
@@ -96,7 +107,7 @@ const Home = (props: HomeProps) => {
           <span className='text-white my-2'>Nổi bật</span>
           <img src="https://res.cloudinary.com/vulong/image/upload/v1659544115/uploadimg/azmbnevlgogqfuokuhdk.png" alt="" className='w-50 mx-auto' />
         </div>
-        
+
       </div>
       </div>
 
@@ -123,10 +134,10 @@ const Home = (props: HomeProps) => {
           <span className='text-white my-2'>Nổi bật</span>
           <img src="https://res.cloudinary.com/vulong/image/upload/v1659544115/uploadimg/qtrjl4jl6qwgc71yalmz.png" alt="" className='w-50 mx-auto' />
         </div>
-        
+
       </div>
       </div>
-      
+
 
 
     </div>
